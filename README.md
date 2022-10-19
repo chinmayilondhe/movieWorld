@@ -22,6 +22,10 @@ movieWorld is a Cross Platform Application developed using Flutter. Information 
 <img src="screens/img01.png" align="center"
 width="200">
 
+### Movie Description
+<img src="screens/img02.png" align="center"
+width="200">
+
 
 # Installation
  
