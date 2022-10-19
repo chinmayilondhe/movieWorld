@@ -15,7 +15,7 @@ movieWorld ia Cross Platform Application developed using Flutter. Information of
   http: ^0.13.3
   google_fonts: ^2.1.0
 ```
-## Screenshots
+# Screenshots
 
 ### Home Screen
 
