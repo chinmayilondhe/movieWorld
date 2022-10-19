@@ -1,9 +1,9 @@
 # movieWorld
 
-movieWorld ia Cross Platform Application developed using Flutter. Information of particular movie is displayed from the OMDB API.
+movieWorld is a Cross Platform Application developed using Flutter. Information of particular movie is displayed from the OMDB API.
 
 #### You can contribute, by solving the issue in Issues Tab. ✨
-#### Feel free to raise any Issues, or problems you may face into the Issues Tab.
+#### Feel free to raise any Issue, or problem you may face into the Issues Tab.
 
 # **API Reference**
 - [omdb api](https://www.omdbapi.com/)
