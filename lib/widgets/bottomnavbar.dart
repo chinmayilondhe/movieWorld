@@ -37,7 +37,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BottomNavigationBarItem(
               icon: BottomNavItem(
                 icon: Icons.bookmark,
-                isSelected: (index == 1),
+                isSelected: index == 1,
               ),
               label: "",
             ),
