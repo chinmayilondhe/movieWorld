@@ -40,7 +40,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<List<Movie>> getMovies(String title) async {
-    var url = Uri.parse("https://www.omdbapi.com/?s=$title&apikey=ed61efbf");
+    var url = Uri.parse("https://www.omdbapi.com/?s=$title&type=movie&apikey=ed61efbf");
     var response = await http.get(url);
 
     var responseData = jsonDecode(response.body);
