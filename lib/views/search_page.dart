@@ -12,40 +12,41 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.tealAccent,
-          foregroundColor: Colors.black,
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-          // backgroundColor: Colors.white,
-          title: TextField(
-            onChanged: (query) {
-              BlocProvider.of<SearchBloc>(context)
-                  .add(SearchByTitleTrigger(query: query));
-            },
-            controller: _textEditingController,
-            decoration:
-                InputDecoration(border: InputBorder.none, hintText: "Search", ),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.tealAccent,
+        // foregroundColor: Colors.black,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        // backgroundColor: Colors.white,
+        title: TextField(
+          onChanged: (query) {
+            BlocProvider.of<SearchBloc>(context)
+                .add(SearchByTitleTrigger(query: query));
+          },
+          controller: _textEditingController,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: "Search",
           ),
         ),
-        body: BlocConsumer<SearchBloc, SearchState>(
-          listener: (context, state) {
-            debugPrint("Search State emitted");
-          },
-          builder: (context, state) {
-            if (state.isLoading) {
-              return Container(
-
-                  child: ( LinearProgressIndicator(color:Colors.tealAccent,)));
-            } else {
-              return MovieListViewBuilder(moviesItem: state.fetchedList);
-            }
-          },
-        ),
+      ),
+      body: BlocConsumer<SearchBloc, SearchState>(
+        listener: (context, state) {
+          debugPrint("Search State emitted");
+        },
+        builder: (context, state) {
+          if (state.isLoading) {
+            return const Center(
+                child: (CircularProgressIndicator(
+              color: Colors.tealAccent,
+            )));
+          } else {
+            return MovieListViewBuilder(moviesItem: state.fetchedList);
+          }
+        },
       ),
     );
   }

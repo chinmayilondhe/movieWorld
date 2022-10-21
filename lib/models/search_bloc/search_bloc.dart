@@ -21,11 +21,11 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
             searchByDate: false,
             searchByTitle: false)) {
     on<SearchTrigger>((event, emit) {
-      add(SearchByTitleTrigger(query: "fight club")); //default to populate
+      add(SearchByTitleTrigger(query: "The Godfather")); //default to populate
     });
     on<SearchByTitleTrigger>(transformer: (events, mapper) {
       return events
-          .debounceTime(const Duration(milliseconds: 700))
+          .debounceTime(const Duration(milliseconds: 500))
           .asyncExpand(mapper);
     }, (event, emit) async {
       emit(SearchState(
@@ -40,7 +40,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<List<Movie>> getMovies(String title) async {
-    var url = Uri.parse("https://www.omdbapi.com/?s=$title&apikey=ed61efbf");
+    var url = Uri.parse("https://www.omdbapi.com/?s=$title&type=movie&apikey=ed61efbf");
     var response = await http.get(url);
 
     var responseData = jsonDecode(response.body);
