@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:movieWorld/views/profilePage.dart';
 
 import '../widgets/bottomnavbar.dart';
 import '../widgets/filters.dart';
 import '../widgets/movies_list.dart';
 import '../widgets/tabs.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   static const String id = "home_page";
 
+  int index;
+  HomePage(@required this.index);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -21,13 +30,14 @@ class HomePage extends StatelessWidget {
           elevation: 0,
           title: const Text(
             "India",
-            style: TextStyle(color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           bottom: const PreferredSize(
             preferredSize: Size.fromHeight(50),
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Tabs(),
             ),
           ),
@@ -45,18 +55,30 @@ class HomePage extends StatelessWidget {
           physics: ClampingScrollPhysics(),
           children: [
             SingleChildScrollView(
-              child: Column(
-                children: [
-                  Filters(),
-                  MoviesList(),
-                ],
-              ),
-            ),
+                child: widget.index == 0
+                    ? Column(
+                        children: [
+                          Filters(),
+                          MoviesList(),
+                        ],
+                      )
+                    : widget.index == 1
+                        ? Column(
+                            children: [
+                              // Filters(),
+                              // MoviesList(),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              Center(child: profilePage()),
+                            ],
+                          )),
             Container(),
             Container(),
           ],
         ),
-        bottomNavigationBar: BottomNavBar(),
+        bottomNavigationBar: BottomNavBar(index: widget.index,),
       ),
     );
   }

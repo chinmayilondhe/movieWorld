@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app/views/home_page.dart';
-import 'package:movie_app/views/movie_description.dart';
-import 'package:movie_app/views/splashScreen.dart';
+import 'package:movieWorld/views/home_page.dart';
+import 'package:movieWorld/views/movie_description.dart';
+import 'package:movieWorld/views/splashScreen.dart';
 
 main(List<String> args) {
   runApp(MyApp());
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       home: splashScreen(),
       // initialRoute: HomePage.id,
       routes: <String, WidgetBuilder>{
-        HomePage.id : (context) => HomePage(),
+        HomePage.id : (context) => HomePage(0),
         MovieDescription.id: (context) => MovieDescription(),
       },
     );

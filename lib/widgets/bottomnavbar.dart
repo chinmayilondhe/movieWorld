@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movieWorld/views/home_page.dart';
 import 'bottom_nav_item.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({
+  int index;
+  BottomNavBar({
     Key? key,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -11,7 +14,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int index = 0;
+  // late int index;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -20,31 +23,33 @@ class _BottomNavBarState extends State<BottomNavBar> {
           selectedItemColor: Colors.white,
           onTap: (value) {
             setState(() {
-              index = value;
+              widget.index = value;
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(value)));
+              print(value);
             });
             // print(index);
           },
           //  unselectedItemColor: Colors.transparent,
-          currentIndex: index,
+          currentIndex: widget.index,
           items: [
             BottomNavigationBarItem(
               label: "",
               icon: BottomNavItem(
                 icon: Icons.home,
-                isSelected: index == 0,
+                isSelected: widget.index == 0,
               ),
             ),
             BottomNavigationBarItem(
               icon: BottomNavItem(
                 icon: Icons.bookmark,
-                isSelected: index == 1,
+                isSelected: widget.index == 1,
               ),
               label: "",
             ),
             BottomNavigationBarItem(
               icon: BottomNavItem(
                 icon: Icons.person,
-                isSelected: index == 2,
+                isSelected: widget.index == 2,
               ),
               label: "",
             )
