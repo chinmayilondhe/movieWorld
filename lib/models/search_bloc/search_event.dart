@@ -17,6 +17,14 @@ class SearchByTitleTrigger extends SearchEvent{
 }
 
 class SearchByYearTrigger extends SearchEvent{
+  DateTime dateTime;
+  String query;
+  SearchByYearTrigger({required this.dateTime,required this.query});
+
+  @override
+  List<Object> get props =>[];
+}
+class ClearFilterAndQuery extends SearchEvent{
   @override
   List<Object> get props =>[];
 }
