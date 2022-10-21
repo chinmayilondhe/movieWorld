@@ -21,7 +21,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
             searchByDate: false,
             searchByTitle: false)) {
     on<SearchTrigger>((event, emit) {
-      add(SearchByTitleTrigger(query: ""));
+      add(SearchByTitleTrigger(query: "fight club")); //default to populate
     });
     on<SearchByTitleTrigger>(transformer: (events, mapper) {
       return events

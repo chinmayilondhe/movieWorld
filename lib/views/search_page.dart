@@ -14,11 +14,14 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
+          backgroundColor: Colors.tealAccent,
+          foregroundColor: Colors.black,
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
           title: TextField(
             onChanged: (query) {
               BlocProvider.of<SearchBloc>(context)
@@ -26,7 +29,7 @@ class SearchPage extends StatelessWidget {
             },
             controller: _textEditingController,
             decoration:
-                InputDecoration(border: InputBorder.none, hintText: "Search"),
+                InputDecoration(border: InputBorder.none, hintText: "Search", ),
           ),
         ),
         body: BlocConsumer<SearchBloc, SearchState>(
@@ -35,7 +38,9 @@ class SearchPage extends StatelessWidget {
           },
           builder: (context, state) {
             if (state.isLoading) {
-              return const LinearProgressIndicator();
+              return Container(
+
+                  child: ( LinearProgressIndicator(color:Colors.tealAccent,)));
             } else {
               return MovieListViewBuilder(moviesItem: state.fetchedList);
             }
