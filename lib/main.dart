@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app/views/home_page.dart';
-import 'package:movie_app/views/movie_description.dart';
+import 'package:movieWorld/views/home_page.dart';
+import 'package:movieWorld/views/movie_description.dart';
+
 
 main(List<String> args) {
   runApp(MyApp());
