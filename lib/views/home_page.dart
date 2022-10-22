@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieWorld/views/profilePage.dart';
+import 'package:movieWorld/views/search_page.dart';
+
 
 import '../widgets/bottomnavbar.dart';
 import '../widgets/filters.dart';
@@ -41,12 +43,15 @@ class _HomePageState extends State<HomePage> {
               child: widget.index == 0 ? Tabs() : widget.index == 1 ? Tabs() : null,
             ),
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.search,
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon: const Icon(Icons.search),
                 color: Colors.red,
+                onPressed:(){
+                  Navigator.of(context).pushNamed(SearchPage.id);
+                }
               ),
             )
           ],
