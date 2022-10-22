@@ -34,11 +34,11 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(50),
+          bottom: PreferredSize(
+            preferredSize: widget.index == 0 ? Size.fromHeight(50) : widget.index == 1 ? Size.fromHeight(50) : Size.fromHeight(0),
             child: Align(
               alignment: Alignment.center,
-              child: Tabs(),
+              child: widget.index == 0 ? Tabs() : widget.index == 1 ? Tabs() : null,
             ),
           ),
           actions: const [
