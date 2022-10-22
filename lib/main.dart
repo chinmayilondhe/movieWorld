@@ -5,8 +5,8 @@ import 'package:movieWorld/views/home_page.dart';
 import 'package:movieWorld/views/movie_description.dart';
 import 'package:movieWorld/views/search_page.dart';
 import 'package:movieWorld/views/splashScreen.dart';
-
 import 'models/search_bloc/search_bloc.dart';
+
 
 main(List<String> args) {
   runApp(MyApp());
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       home: const splashScreen(),
       // initialRoute: HomePage.id,
       routes: <String, WidgetBuilder>{
-        HomePage.id: (context) => HomePage(),
+        HomePage.id : (context) => HomePage(0),
         MovieDescription.id: (context) => MovieDescription(),
         SearchPage.id: (context) => BlocProvider(
               create: (context) => SearchBloc()..add(SearchTrigger()),
