@@ -43,3 +43,7 @@ width="200">
 * Push your changes. 
 * Click Compare & pull request button and create a new pull request.
 * Yayy! 🥳 You have successfully created a pull request. 
+
+# Support
+
+Give a ⭐ if you like this project.
